@@ -1,0 +1,49 @@
+apply plugin: 'java'
+apply plugin: 'jetty'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+
+repositories {
+    mavenCentral()
+    maven { url 'http://repo.springsource.org/libs-milestone' }
+}
+
+eclipse {
+    project {
+        natures += 'org.springframework.ide.eclipse.core.springnature'
+    }
+}
+
+dependencies {
+    //compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    //compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    
+	//compile "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+    //compile "org.springframework.integration:spring-integration-jmx:$springIntegrationVersion"
+    //compile "org.springframework.integration:spring-integration-http:$springIntegrationVersion"
+    compile "org.springframework.integration:spring-integration-amqp:$springIntegrationVersion"
+    compile "org.springframework.integration:spring-integration-stream:$springIntegrationVersion"
+
+    //compile "ch.qos.logback:logback-classic:1.0.0"
+    
+    //compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.slf4j:log4j-over-slf4j:$slf4jVersion"
+    //compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+			
+    compile "org.springframework.webflow:spring-webflow:$springWebflowVersion"
+    
+    compile "javax.servlet:jstl:$JstlVersion"
+    compile "org.apache.tiles:tiles-core:2.2.2"
+    compile "org.apache.tiles:tiles-jsp:2.2.2"
+    
+    compile "org.codehaus.jackson:jackson-core-asl:1.9.2"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.2"
+   	
+   	//compile "log4j:log4j:1.2.16"
+   	
+    testCompile "junit:junit-dep:$junitVersion"
+}
