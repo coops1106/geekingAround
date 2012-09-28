@@ -1,1 +1,1 @@
-Da menu
+<%= new java.util.Date() %>

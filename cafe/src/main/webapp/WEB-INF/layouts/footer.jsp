@@ -1,1 +1,3 @@
-I'm a footer'
+<footer>
+	I'm a footer
+</footer>

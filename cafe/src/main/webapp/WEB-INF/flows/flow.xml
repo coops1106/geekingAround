@@ -3,20 +3,20 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		xsi:schemaLocation="http://www.springframework.org/schema/webflow 
 							http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
-		start-state="startUp">
+		start-state="firstPage">
 	
-	<view-state id="startUp" view="firstPage">
-        <transition on="submit" to="vrnLookup"/>
+	<view-state id="firstPage">
+		<on-render>
+			<render fragments="body444" />
+		</on-render>
+        <transition on="submit">
+        	<render fragments="bob"></render>
+        </transition>
     </view-state>
 	
-	<action-state id="vrnLookup">
-		<evaluate expression="vrnLookupService.doCheck" />
-		<transition on="success" to="vrnCheck" />
-		<transition on="vrnMissing" to="vrnStartUp" />
+	<action-state id="addDrink">
+		<evaluate expression="addDrinkService.addDrink" />
+		<render fragments="footer"></render>
 	</action-state>
-	
-	<view-state id="vrnCheck" view="yourCar">
-	</view-state>
-	
 	
 </flow>
