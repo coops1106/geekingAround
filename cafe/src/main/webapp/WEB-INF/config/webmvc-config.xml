@@ -6,16 +6,34 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 	
-	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
- 		<property name="order" value="1"/>
-		<property name="mappings">
-			<value>/here=flowController</value>
-		</property>
+<!-- 	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> -->
+<!--  		<property name="order" value="1"/> -->
+<!-- 		<property name="mappings"> -->
+<!-- 			<value>/here=flowController</value> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
+	
+<!-- 	<bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController"> -->
+<!-- 		<property name="flowExecutor" ref="flowExecutor"/> -->
+<!-- 	</bean> -->
+	
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
 	</bean>
 	
-	<bean id="flowController" class="org.springframework.webflow.mvc.servlet.FlowController">
-		<property name="flowExecutor" ref="flowExecutor"/>
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 
+	<!-- Tiles view resolver -->
+	<bean id="viewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView" />
+	</bean>
+ 	
+<!-- 	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"> -->
+<!--     	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
+<!--     	<property name="prefix" value="/WEB-INF/jsp/"/> -->
+<!--     	<property name="suffix" value=".jsp"/> -->
+<!-- 	</bean> -->
 
 </beans>

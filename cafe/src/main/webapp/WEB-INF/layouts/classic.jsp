@@ -7,8 +7,10 @@
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#submit").click(function(){
-			$.post('here', ${"flowExecutionUrl"} + {ajaxSource: "true", drink: $("#drink").val, _eventId_submit: "submit", fragments: "footer"}, function(data){
-				$("footer").html(data);	
+			alert($("#drink").val());
+			$.post("here", {execution: $('#key').val(), ajaxSource: "true", drink: $("#drink").val(), _eventId_submit: "submit"}, function(data){
+				alert(data);
+				$("#footer").html(data);	
 			});
 			return false;
 		});

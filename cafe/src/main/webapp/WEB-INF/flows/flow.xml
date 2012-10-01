@@ -5,18 +5,13 @@
 							http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
 		start-state="firstPage">
 	
+	<!-- Renders the view firstPage.jsp by convention -->
 	<view-state id="firstPage">
-		<on-render>
-			<render fragments="body444" />
-		</on-render>
         <transition on="submit">
-        	<render fragments="bob"></render>
+        	<evaluate expression="addDrinkService.addDrink" />
+        	<render fragments="footer" />
         </transition>
     </view-state>
 	
-	<action-state id="addDrink">
-		<evaluate expression="addDrinkService.addDrink" />
-		<render fragments="footer"></render>
-	</action-state>
-	
+		
 </flow>

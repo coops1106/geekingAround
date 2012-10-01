@@ -19,18 +19,6 @@
  		<property name="viewResolvers" ref="viewResolver"/>
  	</bean>
 	
-	<!-- Tiles view resolver -->
-	<bean id="viewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
-    	<property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView" />
-	</bean>
- 	
-<!-- 	<bean id="viewResolver" -->
-<!--       class="org.springframework.web.servlet.view.UrlBasedViewResolver"> -->
-<!--      <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/> -->
-<!--     <property name="prefix" value="/WEB-INF/jsp/"/> -->
-<!--     <property name="suffix" value=".jsp"/> -->
-<!-- </bean> -->
-	
 	<bean id="addDrinkService" class="org.hangfire.webflow.actions.AddDrinkAction"></bean>
 	
 </beans>
